@@ -74,7 +74,7 @@ const UserForm = () => {
                 name="email"
             />
             <input
-                type="phoneNumber"
+                type="tel"
                 placeholder="phoneNumber"
                 value={data.phoneNumber}
                 onChange={handleInputChange}
