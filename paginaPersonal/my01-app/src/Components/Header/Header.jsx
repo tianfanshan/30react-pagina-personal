@@ -12,6 +12,9 @@ const Header = () => {
         <span>
           <Link to='/UserForm'>UserForm</Link>
         </span>
+        <span>
+          <Link to='/contact'>Contact</Link>
+        </span>
       </div>
     </div>
   )

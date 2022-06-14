@@ -2,17 +2,26 @@ import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const UserForm = () => {
-    let navigate = useNavigate();
+
+    let users = JSON.parse(localStorage.getItem('user2')) || []
+    
+    const saveData =()=>{
+        users.push(data)
+        localStorage.setItem('user2',JSON.stringify(users))
+    }
+
     const [data,setData] = useState({
         name:'',
         email:'',
         phoneNumber:''
     })
+
     const initialState = {
         name:'',
         email:'',
         phoneNumber:''
     }
+
     const [btnDisabled,setBtnDisabled] = useState(true)
 
     const [message,setMessage] = useState('')
@@ -20,6 +29,9 @@ const UserForm = () => {
     const clearState = ()=>{
         setData({...initialState});
     }
+
+    let navigate = useNavigate();
+
     const handleInputChange = (event) =>{
         if(data.name.length < 2){
             setMessage('El nombre minimo tiene que ser 3 letras')
@@ -33,14 +45,17 @@ const UserForm = () => {
             [event.target.name]:event.target.value
         })
     }
+
     const handleSubmit = (event) =>{
         event.preventDefault();
         clearState();
+        saveData()
         setMessage('Te llevamos all home')
         setTimeout(()=>{
             navigate('/')
         },3000)
     }
+
   return (
     <div>
         <form onSubmit={handleSubmit}>
