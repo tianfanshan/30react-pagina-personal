@@ -1,0 +1,8 @@
+.font{
+    font-size: 4em;
+}
+.font2-0{
+    font-size:2em;
+    background: rgb(211,17,102);
+    background: radial-gradient(circle, rgba(211,17,102,1) 0%, rgba(13,72,53,1) 100%);
+}
